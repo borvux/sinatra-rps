@@ -43,8 +43,8 @@ describe "root URL" do
   it "has a heading with the text 'Welcome to Rock-Paper-Scissors!'", points: 2, hint: h("copy_must_match") do
     visit "/"
 
-    expect { find("h1", :text => /Welcome\s+to\s+Rock-Paper-Scissors/i) }.to_not raise_error,
-      "Expected page to have an h1 element with the text 'Welcome to Rock-Paper-Scissors!', but didn't find one."
+    expect { find("h1", :text => /Welcome to Rock-Paper-Scissors/i) }.to_not raise_error,
+      "Expected page to have an <h1> with the text 'Welcome to Rock-Paper-Scissors!', but didn't find one."
   end
 end
 
@@ -110,20 +110,23 @@ describe "/rock" do
       visit "/rock"
 
       if (page.has_content?(/They played rock/i) &&
-          page.has_no_content?(/They played paper/i) &&
-          page.has_no_content?(/They played scissors/i))
+        page.has_no_content?(/They played paper/i) &&
+        page.has_no_content?(/They played scissors/i))
+
         computer_played_rock = computer_played_rock + 1
       end
 
       if (page.has_content?(/They played paper/i) &&
-          page.has_no_content?(/They played rock/i) &&
-          page.has_no_content?(/They played scissors/i))
+        page.has_no_content?(/They played rock/i) &&
+        page.has_no_content?(/They played scissors/i))
+
         computer_played_paper = computer_played_paper + 1
       end
 
       if (page.has_content?(/They played scissors/i) &&
-          page.has_no_content?(/They played rock/i) &&
-          page.has_no_content?(/They played paper/i))
+        page.has_no_content?(/They played rock/i) &&
+        page.has_no_content?(/They played paper/i))
+
         computer_played_scissors = computer_played_scissors + 1
       end
     end
@@ -137,7 +140,7 @@ describe "/rock" do
   end
 end
 
-describe "/rock" do
+describe "/rock"  do
   it "displays the correct outcome", points: 4, hint: h("copy_must_match") do
     visit "/rock"
 
@@ -215,20 +218,23 @@ describe "/paper" do
       visit "/paper"
 
       if (page.has_content?(/They played rock/i) &&
-          page.has_no_content?(/They played paper/i) &&
-          page.has_no_content?(/They played scissors/i))
+        page.has_no_content?(/They played paper/i) &&
+        page.has_no_content?(/They played scissors/i))
+
         computer_played_rock = computer_played_rock + 1
       end
 
       if (page.has_content?(/They played paper/i) &&
-          page.has_no_content?(/They played rock/i) &&
-          page.has_no_content?(/They played scissors/i))
+        page.has_no_content?(/They played rock/i) &&
+        page.has_no_content?(/They played scissors/i))
+
         computer_played_paper = computer_played_paper + 1
       end
 
       if (page.has_content?(/They played scissors/i) &&
-          page.has_no_content?(/They played rock/i) &&
-          page.has_no_content?(/They played paper/i))
+        page.has_no_content?(/They played rock/i) &&
+        page.has_no_content?(/They played paper/i))
+
         computer_played_scissors = computer_played_scissors + 1
       end
     end
@@ -238,6 +244,7 @@ describe "/paper" do
       "Expected to see 'They played paper' on the page at least once out of 15 tries but didn't."
     expect(computer_played_scissors).to_not eq(0),
       "Expected to see 'They played scissors' on the page at least once out of 15 tries but didn't."
+
   end
 end
 
@@ -319,30 +326,35 @@ describe "/scissors" do
       visit "/scissors"
 
       if (page.has_content?(/They played rock/i) &&
-          page.has_no_content?(/They played paper/i) &&
-          page.has_no_content?(/They played scissors/i))
+        page.has_no_content?(/They played paper/i) &&
+        page.has_no_content?(/They played scissors/i))
+
         computer_played_rock = computer_played_rock + 1
       end
 
       if (page.has_content?(/They played paper/i) &&
-          page.has_no_content?(/They played rock/i) &&
-          page.has_no_content?(/They played scissors/i))
+        page.has_no_content?(/They played rock/i) &&
+        page.has_no_content?(/They played scissors/i))
+
         computer_played_paper = computer_played_paper + 1
       end
 
       if (page.has_content?(/They played scissors/i) &&
-          page.has_no_content?(/They played rock/i) &&
-          page.has_no_content?(/They played paper/i))
+        page.has_no_content?(/They played rock/i) &&
+        page.has_no_content?(/They played paper/i))
+
         computer_played_scissors = computer_played_scissors + 1
       end
     end
 
+    
     expect(computer_played_rock).to_not eq(0),
       "Expected to see 'They played rock' on the page at least once out of 15 tries but didn't."
     expect(computer_played_paper).to_not eq(0),
       "Expected to see 'They played paper' on the page at least once out of 15 tries but didn't."
     expect(computer_played_scissors).to_not eq(0),
       "Expected to see 'They played scissors' on the page at least once out of 15 tries but didn't."
+
   end
 end
 
